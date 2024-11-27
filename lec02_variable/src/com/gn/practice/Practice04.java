@@ -8,5 +8,4 @@ public class Practice04 {
 		System.out.println("실수 :" + (num1 + num2));
 
 	}
-
 }
