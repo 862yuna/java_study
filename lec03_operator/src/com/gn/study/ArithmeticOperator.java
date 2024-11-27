@@ -30,6 +30,15 @@ public class ArithmeticOperator {
 		int d = 10;
 		d %= 3;
 		
+		// 3. 증감 연산자
+		int pre = 5;
+		System.out.println(pre);
+		System.out.println(++pre); // 전위 연산자
+		
+		int post = 5;
+		System.out.println(post);
+		System.out.println(post++); // 후위 연산자
+		System.out.println(post); // 후위 연산자는 다음번에 실행
 
 		
 	}
