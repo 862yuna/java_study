@@ -15,6 +15,7 @@ public class Homework03 {
 		System.out.println("두번째 문자 : " + word2);
 		System.out.println("세번째 문자 : " + word3);
 		
+		
 	}
 
 }

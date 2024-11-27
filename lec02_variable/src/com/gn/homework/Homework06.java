@@ -13,6 +13,7 @@ public class Homework06 {
 	int c = b*b;
 	System.out.println("입력한 숫자의 제곱은" + c + "입니다.");
 
+	
 	}
 
 }

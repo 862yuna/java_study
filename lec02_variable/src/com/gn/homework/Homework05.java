@@ -19,6 +19,7 @@ public class Homework05 {
 		System.out.println("총점 : " + sum);
 		int average = sum/3;
 		System.out.println("평균 : " + average);
+		
 	}
 
 }

@@ -15,5 +15,6 @@ public class Homework02 {
 	
 		System.out.println("면적 : " + (width*height));
 		System.out.println("둘레 : " + ((width+height)*2));
+		
 	}
 }
