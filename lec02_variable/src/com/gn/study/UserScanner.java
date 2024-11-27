@@ -18,5 +18,4 @@ public class UserScanner {
 		String name = sc.nextLine();
 		System.out.println(name);
 	}
-
 }
