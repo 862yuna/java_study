@@ -20,6 +20,15 @@ public class Run {
 			case 3 :
 				practice.practice03();
 				break;
+			case 4 :
+				practice.practice04();
+				break;
+			case 5 :
+				practice.practice05();
+				break;
+			case 6 :
+				practice.practice06();
+				break;
 		}
 
 	}
