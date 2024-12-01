@@ -30,7 +30,7 @@ public class Run {
 				practice.practice06();
 				break;
 		}
-
+		sc.close();
 	}
 
 }
