@@ -112,21 +112,23 @@ public class Practice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("번호 입력 : ");
 		int routine = sc.nextInt();
-
-		if(routine == 1) {
-			System.out.println("스쿼트 운동 시간입니다.");
-		} else if(routine==2) {
-			System.out.println("데드리프트 운동 시간입니다.");
-		} else if(routine ==3) {
-			System.out.println("벤치 프레스 운동 시간입니다.");
-		} else if(routine==4) {
-			System.out.println("풀업 운동 시간입니다.");
-		} else if(routine==5) {
-			System.out.println("오늘도 수고하셨습니다.");
-		} else if(0>routine||routine==0) {
-			System.out.println("양수만 입력해주세요");
+		
+		if(routine>0) {
+			if(routine==1) {
+				System.out.println("스쿼트 운동 시간입니다.");
+			} else if(routine==2) {
+				System.out.println("데드리프트 운동 시간입니다.");
+			} else if(routine==3) {
+				System.out.println("벤치 프레스 운동 시간입니다.");
+			} else if(routine==4) {
+				System.out.println("풀업 운동 시간입니다.");
+			} else if(routine==5) {
+				System.out.println("오늘도 수고하셨습니다.");
+			} else {
+				System.out.println("목록에 있는 숫자만 입력해주세요.");
+			}
 		} else {
-			System.out.println("목록에 있는 숫자만 입력해주세요.");
+			System.out.println("양수만 입력해주세요");
 		}
 		sc.close();
 	}
