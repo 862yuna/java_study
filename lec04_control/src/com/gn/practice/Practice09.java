@@ -25,7 +25,5 @@ public class Practice09 {
 		//    }
 		// 		System.out.println("반복 종료!");
 		
-
 	}
-
 }
