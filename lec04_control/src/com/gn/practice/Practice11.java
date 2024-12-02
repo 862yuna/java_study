@@ -13,6 +13,7 @@ public class Practice11 {
 			}
 			System.out.print(str.charAt(i));
 		}
+		sc.close();
 	}
 
 }
