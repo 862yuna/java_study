@@ -3,6 +3,29 @@ package com.gn.homework.loop;
 import java.util.Scanner;
 
 public class Practice {
+	public void practice01() {
+		int num = 0;
+		while(true) {
+			System.out.print("정수(1~50) : ");
+			Scanner sc = new Scanner(System.in);
+			num = sc.nextInt();
+			int sum = 0;
+			if(num<1) {
+				System.out.println("1~50 사이의 정수를 입력하세요.");
+			} else if(num>50) {
+				System.out.println("1~50 사이의 정수를 입력하세요.");
+			}
+			for(int i=1;i<=num;i++) {
+				int evenNumber = i%2;
+				if(evenNumber==0) {
+					sum += i;
+					System.out.println(sum);
+				} 
+			} 
+				break;
+
+		}
+	}
 	
 	public void practice02() {
 		int i = 0;
