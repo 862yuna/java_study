@@ -5,24 +5,27 @@ import java.util.Scanner;
 public class Practice {
 	public void practice01() {
 		int num = 0;
+		System.out.print("정수(1~50) : ");
+		Scanner sc = new Scanner(System.in);
+		num = sc.nextInt();
+		int sum = 0;
 		while(true) {
-			System.out.print("정수(1~50) : ");
-			Scanner sc = new Scanner(System.in);
-			num = sc.nextInt();
-			int sum = 0;
-			if(num<1) {
-				System.out.println("1~50 사이의 정수를 입력하세요.");
-			} else if(num>50) {
-				System.out.println("1~50 사이의 정수를 입력하세요.");
-			}
-			for(int i=1;i<=num;i++) {
-				int evenNumber = i%2;
-				if(evenNumber==0) {
-					sum += i;
-					System.out.println(sum);
+			if(1<=num&&num<=50) {
+				for(int i=1;i<=num;i++) {
+					int evenNumber = i%2;
+					if(evenNumber==0) {
+						sum += i;
+					} 
 				} 
-			} 
+				System.out.println("합계 : "+sum);
+				sc.close();
 				break;
+			} else {
+				System.out.println("1~50 사이의 정수를 입력하세요.");
+				System.out.print("정수(1~50) : ");
+				num = sc.nextInt();
+			}
+			
 
 		}
 	}
@@ -66,6 +69,28 @@ public class Practice {
 			sc.close();
 		}
 	}
+	public void practice04() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("게임을 실행합니다!");
+		System.out.println("게임을 다시 플레이하시겠습니까?(yes/no)");
+		String answer = sc.nextLine();
+		
+		do {
+			System.out.println("게임을 실행합니다!");
+		} while(answer.equals("yes")); 
+		if(answer.equals("no")) {
+			System.out.println("게임을 종료합니다.");
+		}
+		
+	}
+	public void practice05() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자(0을 입력하면 종료) : ");
+		int num = sc.nextInt();
+		
+		
+	}
+	
 
 	public void practice06() {
 		for(int i=1;i<2;i++) {
