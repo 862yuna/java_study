@@ -85,10 +85,19 @@ public class Practice {
 	}
 	public void practice05() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("숫자(0을 입력하면 종료) : ");
-		int num = sc.nextInt();
-		
-		
+		int num = 0;
+		int sum = 0;
+		while(true) {
+			System.out.print("숫자(0을 입력하면 종료) : ");
+			num = sc.nextInt();
+			if(num==0) {
+				break;
+			} else if(num>0) {
+				sum += num;
+			}
+		}
+		System.out.println("양수의 합계 : "+sum);
+		sc.close();
 	}
 	
 
@@ -125,6 +134,23 @@ public class Practice {
 			}
 		} 
 		sc.close();
+	}
+	
+	public void practice08() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String str = sc.nextLine();
+		System.out.print("\n문자 : ");
+		String text = sc.nextLine();
+		
+		int sum = 0;
+		for(int i =0;i<str.length();i++) {
+			
+			if(text.charAt(0)==str.charAt(i)) {
+				
+				
+			}
+		}
 	}
 
 }	
