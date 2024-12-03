@@ -25,7 +25,6 @@ public class Practice {
 				System.out.print("정수(1~50) : ");
 				num = sc.nextInt();
 			}
-			
 
 		}
 	}
@@ -56,33 +55,33 @@ public class Practice {
 		}
 
 	public void practice03() {
+		Scanner sc = new Scanner(System.in);
 		for(int j =1; ;j++) {
-			Scanner sc = new Scanner(System.in);
 			System.out.print("입력 : ");
 			String hello = sc.next();
-			System.out.println(hello);
-
 			if(hello.equals("탈출")) {
 				System.out.println("프로그램 종료");
+				sc.close();
 				break;
 			}
-			sc.close();
+			System.out.println(hello);
 		}
 	}
 	public void practice04() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("게임을 실행합니다!");
-		System.out.println("게임을 다시 플레이하시겠습니까?(yes/no)");
-		String answer = sc.nextLine();
-		
+		String answer = "";
 		do {
 			System.out.println("게임을 실행합니다!");
-		} while(answer.equals("yes")); 
+			System.out.println("게임을 다시 플레이하시겠습니까?(yes/no)");
+			answer = sc.nextLine();
+		} while(answer.equals("yes"));
+
 		if(answer.equals("no")) {
 			System.out.println("게임을 종료합니다.");
 		}
-		
+		sc.close();
 	}
+	
 	public void practice05() {
 		Scanner sc = new Scanner(System.in);
 		int num = 0;
@@ -138,19 +137,42 @@ public class Practice {
 	
 	public void practice08() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("문자열 : ");
-		String str = sc.nextLine();
-		System.out.print("\n문자 : ");
-		String text = sc.nextLine();
 		
 		int sum = 0;
-		for(int i =0;i<str.length();i++) {
-			
-			if(text.charAt(0)==str.charAt(i)) {
+		int count = 0;
+		
+		while(true) {
+			System.out.print("문자열 : ");
+			String str = sc.nextLine();
+			System.out.print("문자 : ");
+			String text = sc.nextLine();
+			for(int i =0;i<str.length();i++) {
 				
-				
+				if(text.charAt(0)==str.charAt(i)) {
+					count++;
+				}
 			}
+			System.out.println("포함된 개수 : "+count);
+			System.out.print("다시 입력하시겠습니까? : ");
+			String answer = sc.nextLine();
+			if(answer.equals("N")||answer.equals("n")) {
+				break;
+			} else if(answer.equals("Y")||answer.equals("y")) {
+				System.out.print("문자열 : ");
+				str = sc.nextLine();
+				System.out.print("문자 : ");
+				text = sc.nextLine();
+				System.out.println("포함된 개수 : "+count);
+				System.out.print("다시 입력하시겠습니까? : ");
+				answer = sc.nextLine();
+				if(answer.equals("N")||answer.equals("n")) {
+					break;
+				}
+			} else {
+				System.out.println("잘못된 대답입니다. 다시 입력해주세요.");
+			}
+			
 		}
+			
 	}
-
 }	

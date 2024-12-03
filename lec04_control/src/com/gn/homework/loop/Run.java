@@ -41,7 +41,7 @@ public class Run {
 			case 7 :
 				practice.practice07();
 				break;
-			case 8: :
+			case 8: 
 				practice.practice08();
 				break;
 
