@@ -10,14 +10,14 @@ public class Book {
 	public Book() {
 		
 	}
-	public Book(String title,int price,String author) {
+	public Book(String title,int price,String publisher) {
 		this.title = title;
 		this.price = price;
-		this.author = author;
+		this.publisher = publisher;
 		
-		
+	
 	}
-	public Book(String title, String publisher, String author, int price, double discountRate) {
+	public Book(String title, String publisher,String author, int price, double discountRate) {
 		this.title = title;
 		this.publisher = publisher;
 		this.author = author;
