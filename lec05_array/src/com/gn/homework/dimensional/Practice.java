@@ -49,32 +49,7 @@ public class Practice {
 			int[] su = new int[0];
 			if(num<0) {
 				System.out.println("다시 입력하세요.");
-			} else {
-				su =new int[num];
-				int su2 = num%2;
-				if(num<3) {
-					System.out.println("다시 입력하세요.");
-				} else if(su2==0) {
-					System.out.println("다시 입력하세요.");
-				}
-//				for(int i=0;i<num;i++) {
-//					for(int j = i+1;j<num-1;j++) {
-//						su[i] = j;
-//						if(su[i]>su[j]) {
-//							int up = su[i];
-//							su[i] = su[j];
-//							su[j] = up;
-//						} else if(su[i]<su[j]) {
-//							int down = su[i];
-//							su[i] = su[j];
-//							su[j] = down;
-//						}
-//					}
-//				} 
-//				for(int s : su) {
-//					System.out.print(s);
-//				}
-				
+			 
 				
 			}
 			
@@ -83,6 +58,10 @@ public class Practice {
 	}
 	
 	public void practice04() {
+		
+	}
+	
+	public void practice05() {
 		String[] choice = {"가위", "바위", "보"};
 		Scanner sc = new Scanner(System.in);
 		while(true) {
@@ -97,9 +76,6 @@ public class Practice {
 		
 	}
 	
-	public void practice05() {
-		
-	}
 	
 	public void practice06() {
 		
