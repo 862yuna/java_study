@@ -83,6 +83,17 @@ public class Practice {
 	}
 	
 	public void practice04() {
+		String[] choice = {"가위", "바위", "보"};
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			System.out.print("가위바위보");
+			String text = sc.nextLine();
+			if(text.equals("가위")) {
+				for(int i =0;i<choice.length;i++) {
+					
+				}
+			}
+		}
 		
 	}
 	
