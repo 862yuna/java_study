@@ -13,9 +13,9 @@ public class Run {
 		p.setGender('M');
 		p.setPhone("010-111-1111");
 		p.setEmail("kcs@gmail.com");
-		
-		String data = p.information();
-		System.out.println(data);
+//		String data = p.information();
+//		System.out.println(data);
+		System.out.println(p.information());
 		
 	}
 }
