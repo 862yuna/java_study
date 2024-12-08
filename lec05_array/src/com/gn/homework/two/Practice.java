@@ -83,19 +83,26 @@ public class Practice {
 				"송성실","윤예의","진재주","차천축","피풍표","홍하하"};
 		String[][] names = new String[3][2];
 		for(int i =0;i<checkName.length;i++) {
-			if(i<6) {
+			if(i%2==0) {
+				for(int j =1;j<checkName.length;j++) {
+					if(j%2!=0) {
+						names = new String[i][j] ;
+						System.out.println(names[i][j]);
+					}
+				}
 				
 			}
-		}
-		for(int i=0;i<names.length;i++) {
-			for(int j=0;j<names[i].length;j++) {
-				
-			}
+		}  
 		
-		
-		
-		
-		}
+//		for(int i=0;i<names.length;i++) {
+//			for(int j=0;j<names[i].length;j++) {
+//				
+//			}
+//		
+//		
+//		
+//		
+//		}
 		
 		
 	}

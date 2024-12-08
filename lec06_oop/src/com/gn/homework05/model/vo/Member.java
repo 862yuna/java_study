@@ -14,11 +14,11 @@ public class Member {
 	}
 	
 	public void changeName(String name) {
-		
+		this.memberName=name;
 	}
 	
 	public void printName() {
-		
+		System.out.println("이름 : "+this.memberName);
 	}
 	
 

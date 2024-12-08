@@ -7,7 +7,7 @@ public class VendingMachine {
 //		return;
 	}
 	// 2. 남아있는 잔돈(기본형) 리턴
-	public int getBalace() {
+	public int getBalance() {
 		int balance = 500;
 //		return balance;
 		return 500;
