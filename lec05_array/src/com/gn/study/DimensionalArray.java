@@ -231,7 +231,7 @@ public class DimensionalArray {
  		System.out.println(rnd);
  		
  		// 1~45 사이의 정수 랜덤값
- 		int rnd2 = (int)(Math.random()*45)+10;
+ 		int rnd2 = (int)(Math.random()*45)+1;
  		System.out.println(rnd2);
  		
  		

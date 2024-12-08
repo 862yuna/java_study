@@ -79,19 +79,25 @@ public class Practice {
 	
 	
 	public void practice05() {
-		String[] checkName = {"강건강","남나나","도대담","류라라","문미미","박보배",
+		String[] student = {"강건강","남나나","도대담","류라라","문미미","박보배",
 				"송성실","윤예의","진재주","차천축","피풍표","홍하하"};
-		String[][] names = new String[3][2];
-		for(int i =0;i<checkName.length;i++) {
-			if(i%2==0) {
-				for(int j =1;j<checkName.length;j++) {
-					if(j%2!=0) {
-						names = new String[i][j] ;
-						System.out.println(names[i][j]);
-					}
-				}
-				
+		String[][] names1 = new String[3][2]; // 1분단
+		String[][] names2 = new String[3][2]; // 2분단
+		for(int i =0;i<names1.length;i++) {
+			for(int j = 0;j<names1[i].length;j++) {
+//				student = new String[i*2][i*2+1];
 			}
+			System.out.println("== 1분단 ==");
+//			System.out.print(student[i*2][i*2+1]);
+//			if(i%2==0) {
+//				for(int j =1;j<checkName.length;j++) {
+//					if(j%2!=0) {
+//						names = new String[i][j] ;
+//						System.out.println(names[i][j]);
+//					}
+//				}
+//				
+//			}
 		}  
 		
 //		for(int i=0;i<names.length;i++) {

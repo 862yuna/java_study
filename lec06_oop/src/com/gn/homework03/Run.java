@@ -8,14 +8,6 @@ public class Run {
 		c.sentence("chocho", "pie");
 		c.combine(1, 2);
 		c.fullWord("dog", "cat");
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }

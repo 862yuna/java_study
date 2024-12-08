@@ -43,21 +43,58 @@ public class Practice {
 	
 	public void practice03() {
 		Scanner sc = new Scanner(System.in);
+		int num;
 		while(true) {
 			System.out.print("정수 : ");
-			int num = sc.nextInt();
-			int[] su = new int[0];
-			if(num<0) {
+			num = sc.nextInt();
+			if(num<3) {
 				System.out.println("다시 입력하세요.");
-			 
-				
+			} else if(num%2==0) {
+				System.out.println("다시 입력하세요.");
+			} else {
+				break;
 			}
-			
-			
+		}
+		int[] arr = new int[num];
+		int middle = num/2;
+		
+		for(int i =0;i<=middle;i++) {
+			arr[i]=i+1;
+		}
+		for(int i =middle+1, j =middle-1;i<num;i++,j--) {
+			arr[i]=j+1;
+		}
+		for(int i =0;i<num;i++) {
+			System.out.print(arr[i]);
+			if(i != num-1) {
+				System.out.print(", ");
+			}
 		}
 	}
 	
 	public void practice04() {
+		int[] arr = new int[6];
+		int random;
+//		(int)(Math.random()*45)+1;
+		for(int i =0;i<arr.length;i++) {
+			random = (int)(Math.random()*45)+1;
+				arr[i] = random;
+		}
+		for(int x=0;x<arr.length-1;x++) {
+			for(int y=x+1;y<arr.length;y++) {
+				if(arr[x]>arr[y]) {
+						int temp = arr[x];
+						arr[x]=arr[y];
+						arr[y]=temp;
+				}
+			}
+				
+		}
+			for(int a : arr) {
+				System.out.print(a + " ");
+			}
+		
+		
 		
 	}
 	
@@ -78,6 +115,7 @@ public class Practice {
 	
 	
 	public void practice06() {
+		
 		
 	}
 	

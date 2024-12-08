@@ -24,14 +24,4 @@ public class Calculator {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
