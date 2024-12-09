@@ -9,11 +9,6 @@ public class Run {
 		c.turnOf();
 		c.speedUp();
 		c.speedDown();
-		
-		
-		
-		
-		
 	}
 
 }
