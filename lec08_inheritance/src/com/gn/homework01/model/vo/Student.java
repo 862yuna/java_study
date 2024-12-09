@@ -8,11 +8,16 @@ public class Student extends Person{
 		
 	}
 	public Student(String name,int age,double height,double weight,int grade,String major) {
-		
+		super(age,height,weight);
+		this.name=name;
+		this.grade=grade;
+		this.major=major;
 	}
-	public String toString() {
-		return "";
-	}
+//	public String toString() {
+//		return "=== "+name+" ==="+"\n"+"나이 : "+age+
+//				"키 : "+height+"\n"+"몸무게 : "+weight+"\n"+
+//				"학년 : "+grade+"\n"+"전공 : "+major;
+//	}
 	
 	
 	
