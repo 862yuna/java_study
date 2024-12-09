@@ -13,8 +13,6 @@ public class Homework01 {
 		double height = sc.nextDouble();
 		
 		System.out.printf("BMI 지수 : %.1f", (weight/(height*height)));
-					
-		
 	}
 
 }
