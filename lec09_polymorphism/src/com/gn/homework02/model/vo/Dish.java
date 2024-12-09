@@ -8,25 +8,15 @@ public class Dish extends Menu{
 		this.ingredients=ingredients;
 		
 	}
-	public String getName() {
-		return "";
-	}
-	public int getPrice() {
-		return 0;
-	}
 	public String getIngredients() {
 		return ingredients;
-	}
-	public void setName(String name) {
-	}
-	public void setPrice(int price) {
 	}
 	public void setIngredients(String ingredients) {
 		this.ingredients=ingredients;
 	}
 	@Override
 	public void cook() {
-		 super.toString();
+		 System.out.print(super.toString()+"재료는 "+ingredients+"입니다. \n");
 		
 	}
 

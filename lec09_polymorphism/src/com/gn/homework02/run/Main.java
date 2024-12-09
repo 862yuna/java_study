@@ -13,15 +13,17 @@ public class Main {
 		// 반복문을 통해서 해당 배열의 0번 인덱스부터
 		// 마지막 인덱스까지 객체의 cook() 메소드 호출
 		Menu[] arr = new Menu[5];
-		arr[0] = new Dish();
-		arr[1] = new Drink();
-		arr[2] = new Drink();
-		arr[3] = new Dish();
-		arr[4] = new Drink();
+		arr[0] = new Dish("떡볶이",9000,"떡");
+		arr[1] = new Drink("아메리카노",3000,"물+에스프레소");
+		arr[2] = new Drink("카페라떼",4000,"우유+에스프레소");
+		arr[3] = new Dish("스테이크",30000,"고기");
+		arr[4] = new Drink("딸기라떼",6000,"우유+딸기");
 		
-		
-		
+		arr[0].cook();
+		arr[1].cook();
+		arr[2].cook();
+		arr[3].cook();
+		arr[4].cook();
 		
 	}
-
 }
