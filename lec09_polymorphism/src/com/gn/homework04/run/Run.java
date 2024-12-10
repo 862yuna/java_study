@@ -11,31 +11,13 @@ public class Run {
 		arr[1] = new Iphone15();
 		
 		for(SmartPhone phone : arr) {
-			if(phone instanceof GalaxyS24) {
-				((GalaxyS24)phone).printMaker();
-				((GalaxyS24)phone).makeCall();
-				((GalaxyS24)phone).takeCall();
-				((GalaxyS24)phone).touch();
-				((GalaxyS24)phone).charge();
-				((GalaxyS24)phone).picture();
+				phone.printMaker();
+				phone.makeCall();
+				phone.takeCall();
+				phone.touch();
+				phone.charge();
+				phone.picture();
 				System.out.println();
-			} else if(phone instanceof Iphone15) {
-				((Iphone15)phone).printMaker();
-				((Iphone15)phone).makeCall();
-				((Iphone15)phone).takeCall();
-				((Iphone15)phone).touch();
-				((Iphone15)phone).charge();
-				((Iphone15)phone).picture();
-			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-
 }
