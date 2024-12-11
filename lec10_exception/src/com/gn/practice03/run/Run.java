@@ -18,9 +18,12 @@ public class Run {
 		
 		try {
 			log.login(id, pwd);
+//			System.out.println("성공적으로 로그인되었습니다.");
 		} catch(InvalidCredentialsException e) {
 //			e.printStackTrace();
 			System.out.println(e.getMessage());
+		} finally {
+			sc.close();
 		}
 		
 		
