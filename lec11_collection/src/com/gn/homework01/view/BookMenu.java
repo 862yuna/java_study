@@ -1,4 +1,5 @@
 package com.gn.homework01.view;
+import java.util.List;
 // BookController 호출 bc
 import java.util.Scanner;
 
@@ -26,19 +27,19 @@ public class BookMenu {
 			
 				switch(num) {
 					case 1 :
-//						bc.insertBook();
+						insertBook();
 						break;
 					case 2 :
-						bc.selectList();
+						selectList();
 						break;
 					case 3 :
-						bc.searchBook(null);
+						searchBook();
 						break;
 					case 4 :
-						bc.deleteBook(null, null);
+						deleteBook();
 						break;
 					case 5 : 
-						bc.ascBook();
+						ascBook();
 						break;
 					case 9 : 
 						System.out.println("프로그램을 종료합니다.");
@@ -51,7 +52,7 @@ public class BookMenu {
 		
 	}
 	// 1. 새 도서 추가 view 메소드
-	public void insertBook(String title,String author,int category,int price) {
+	public void insertBook() {
 		// 1. 도서명(String title)입력받기
 		// 2. 저자명(String author)입력받기
 		// 3. 장르(int category) 입력받기
@@ -62,84 +63,108 @@ public class BookMenu {
 		// 6. BookController의 insert로Book객체 전달
 		System.out.println("=== 도서 등록 ===");
 		System.out.print("도서명 : ");
-		String bookName = sc.nextLine();
+		String title = sc.nextLine();
 		System.out.print("저자명 : ");
-		String name = sc.nextLine();
+		String author = sc.nextLine();
 		System.out.print("장르 : ");
-		int type = sc.nextInt();
+		int category = sc.nextInt();
+		String categoryStr = "";
 		System.out.print("가격 : ");
-		int money = sc.nextInt();
-		String result = "";
-		if(type==1) {
-			String genre1 = "인문";
-			result = genre1;
+		int price = sc.nextInt();
+		if(category==1) {
+			 categoryStr = "인문";
 			
-		}else if(type==2) {
-			String genre2 = "자연과학";
-			result = genre2;
-		}else if(type==3) {
-			String genre3 = "어린이";
-			result = genre3;
+		}else if(category==2) {
+			categoryStr = "자연과학";
+		}else if(category==3) {
+			categoryStr = "어린이";
 		}else {
-			String genre4 = "기타";
-			result = genre4;
+			categoryStr = "기타";
 		}
-		Book b = new Book(bookName,name,result,money);
+		Book b = new Book(title,author,categoryStr,price);
 		bc.insertBook(b);
 		
 		
 	}
 	// 2. 도서 전체 조회 view 메소드
 	public void selectList() {
+		System.out.println("=== 도서 검색 ===");
 		// 1.BookController의 selectList 메소드 호출
+		List<Book> bookList = bc.selectList();
 		// -> 결과값을 임의의 리스트 bookList 생성하여 대입
 		// 2. 조건식 이용
 		// 2-1. bookList가 비어있는 경우 -> "존재하는 도서가 없습니다." 문구 출력
 		// 2-2. bookList가 비어있지 않은 경우
 		// -> 반복문을 통해 bookList안의 Book객체들 출력
-		bc.selectList();
+		if(bookList.isEmpty()) {
+			System.out.println("존재하는 도서가 없습니다.");
+		}else {
+			for(Book b : bookList) {
+				System.out.println(b);
+			}
+		}
 		
 	}
 	// 3. 도서 검색 조회 view 메소드
 	public void searchBook() {
+		System.out.println("=== 도서 검색 ===");
 		// 1.검색할 도서명 키워드 입력 받기(String keyword)
+		System.out.print("검색어 : ");
+		String keyword = sc.next();
 		// 2.BookController의 searchBook 메소드로 위의 keyword전달
 		// -> 결과 값을 임의의 리스트 searchList를 생성후 대입
+		List<Book> searchList = bc.searchBook(keyword);
 		//-> 키워드가 완전한 도서명이 아니라 도서명의 일부 일 수 있고
 		// 일부 키워드를 입력한 경우 해당 키워드를 포함하는 여러 개의 도서 조회됨
 		// 단일 객체가 아니라 리스트로 조회
 		// 3. 조건식 이용
 		// 3-1.searchList가 비어 있는 경우 ->"검색 결과가 없습니다."라는 문구 출력
 		// 3-2. searchList가 비어있지 않은 경우->반복문으로 searchList안의 Book객체 출력
+		if(searchList.isEmpty()) {
+			System.out.println("검색 결과가 없습니다.");
+		}else {
+			for(Book b : searchList) {
+				System.out.println(b);
+			}
+		}
 	
 	}
 	// 4. 도서 삭제 view 메소드
 	public void deleteBook() {
 		// 1. 삭제할 도서명 입력 받기 (String title)
+		System.out.println("=== 도서 삭제 ===");
+		System.out.print("도서명 : ");
+		String title = sc.nextLine();
 		// 2. 삭제할 저자명 입력 받기 (String author)
+		System.out.print("저자명 : ");
+		String author = sc.nextLine();
 		//-> 같은 도서명을 가졌지만 저자명이 다른 경우
 		// 다른 도서명을 가졌지만 저자명이 같은 경우도 있을 수 있음
 		// 3. BookController의 deleteBook()메소드로 title,author전달
+		Book remove = bc.deleteBook(title, author);
 		// -> 결과값을 임의의Book(참조변수명 remove)객체에 대입
-//		Book book = bc.deleteBook(book.getTitle(),book.getAuthor());
-		
 		// 4. 조건식 이용
 		// 4-1. remove가 존재하는 경우-> "성공적으로 삭제되었습니다" 문구출력
-//		if(book != null) {
-//			System.out.println("성공적으로 삭제되었습니다");
-//		} // 4-2.remove가 존재X경우 -> "삭제할 도서를 찾지 못했습니다."문구 출력 
-//		else {
-//			System.out.println("삭제할 도서를 찾지 못했습니다.");
-//		}
+		if(remove != null) {
+			System.out.println("성공적으로 삭제되었습니다");
+		} // 4-2.remove가 존재X경우 -> "삭제할 도서를 찾지 못했습니다."문구 출력 
+		else {
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
+		}
 		
 	}
 	// 5. 도서 오름차순 정렬 view 메소드
 	public void ascBook() {
 		// 1.BookController의 ascBook()메소드 호출
+		int result =  bc.ascBook();
 		// 2. 메소드 호출 결과가 1이면 성공, 그 외 실패
 		// 3. 성공시 "정렬에 성공하였습니다."출력 후 전체 목록 조회
 		// 4. 실패시 "정렬에 실패하였습니다."출력
-		bc.ascBook();
+		if(result ==1) {
+			System.out.println("정렬에 성공하였습니다.");
+		}else {
+			System.out.println("정렬에 실패하였습니다.");
+		}
 	}
 	
 }

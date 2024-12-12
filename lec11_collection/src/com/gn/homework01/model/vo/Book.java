@@ -1,6 +1,6 @@
 package com.gn.homework01.model.vo;
 // 따까리
-public class Book {
+public class Book implements Comparable<Book>{
 	private String title;
 	private String author;
 	private String category;
@@ -38,8 +38,14 @@ public class Book {
 	public void setPrice(int price) {
 		this.price=price;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return title+"("+author+"), "+category+", "+price;
+	}
+	@Override
+	public int compareTo(Book other) {
+		return this.title.compareTo(other.title);	
+		}
 	
 	
 }

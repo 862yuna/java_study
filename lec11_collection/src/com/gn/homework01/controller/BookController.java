@@ -38,10 +38,12 @@ public class BookController {
 		// 3. searchList에 해당 책 추가
 		// 4. searchList 반환
 		List<Book> searchList = new ArrayList<Book>();
-		if(searchList.contains(keyword)) {
-			
+		for(Book book : bookList) {
+			if(book.getTitle().contains(keyword)) {
+				searchList.add(book);
+			}
 		}
-		return bookList;
+		return searchList;
 	}
 	public Book deleteBook(String title,String author) {
 		// 1. 삭제된 도서를 담을 객체(Book removeBook) 선언 및 null 할당
@@ -64,8 +66,13 @@ public class BookController {
 	public int ascBook() {
 		// Collections.sort와 Comparable 활용
 		// 책 이름 기준으로 오름차순 정렬 후 1 반환
+		try {
+			Collections.sort(bookList);
+			return 1;
+		}catch(Exception e) {
+			return -1;
+		}
 		
-		return 0;
 	}
 
 }
