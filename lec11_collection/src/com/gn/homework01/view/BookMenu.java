@@ -1,5 +1,5 @@
 package com.gn.homework01.view;
-// 2짱
+// BookController 호출 bc
 import java.util.Scanner;
 
 import com.gn.homework01.controller.BookController;
@@ -26,7 +26,7 @@ public class BookMenu {
 			
 				switch(num) {
 					case 1 :
-						bc.insertBook(null);
+//						bc.insertBook();
 						break;
 					case 2 :
 						bc.selectList();
@@ -97,6 +97,7 @@ public class BookMenu {
 		// 2-1. bookList가 비어있는 경우 -> "존재하는 도서가 없습니다." 문구 출력
 		// 2-2. bookList가 비어있지 않은 경우
 		// -> 반복문을 통해 bookList안의 Book객체들 출력
+		bc.selectList();
 		
 	}
 	// 3. 도서 검색 조회 view 메소드
@@ -120,9 +121,17 @@ public class BookMenu {
 		// 다른 도서명을 가졌지만 저자명이 같은 경우도 있을 수 있음
 		// 3. BookController의 deleteBook()메소드로 title,author전달
 		// -> 결과값을 임의의Book(참조변수명 remove)객체에 대입
+//		Book book = bc.deleteBook(book.getTitle(),book.getAuthor());
+		
 		// 4. 조건식 이용
 		// 4-1. remove가 존재하는 경우-> "성공적으로 삭제되었습니다" 문구출력
-		// 4-2.remove가 존재X경우 -> "삭제할 도서를 찾지 못했습니다."문구 출력
+//		if(book != null) {
+//			System.out.println("성공적으로 삭제되었습니다");
+//		} // 4-2.remove가 존재X경우 -> "삭제할 도서를 찾지 못했습니다."문구 출력 
+//		else {
+//			System.out.println("삭제할 도서를 찾지 못했습니다.");
+//		}
+		
 	}
 	// 5. 도서 오름차순 정렬 view 메소드
 	public void ascBook() {
@@ -130,6 +139,7 @@ public class BookMenu {
 		// 2. 메소드 호출 결과가 1이면 성공, 그 외 실패
 		// 3. 성공시 "정렬에 성공하였습니다."출력 후 전체 목록 조회
 		// 4. 실패시 "정렬에 실패하였습니다."출력
+		bc.ascBook();
 	}
 	
 }

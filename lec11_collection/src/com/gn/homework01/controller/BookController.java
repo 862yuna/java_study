@@ -1,5 +1,5 @@
 package com.gn.homework01.controller;
-// 3짱
+// Book호출 b
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,23 +38,32 @@ public class BookController {
 		// 4. searchList 반환
 		List<Book> searchList = new ArrayList<Book>();
 		if(searchList.contains(keyword)) {
-//			searchList.add();
+			
 		}
 		return bookList;
 	}
 	public Book deleteBook(String title,String author) {
 		// 1. 삭제된 도서를 담을 객체(Book removeBook) 선언 및 null 할당
+		Book removeBook = null;
 		// 2. 반복문을 통해 bookList의 책 중 책 명이 전달 받은 title과 동일하고
 		// 저자 명이 전달 받은 author와 동일한 경우 해당 인덱스 도서 삭제 후 빠져나감
-		// 3. 삭제할 도서가 있는 경우 해당 도서를 removeBook에 대입
+		for(int i = 0;i<bookList.size();i++) {
+			if(bookList.get(i).getTitle().equals(title)&&
+					bookList.get(i).getAuthor().equals(author)) {
+				// 3. 삭제할 도서가 있는 경우 해당 도서를 removeBook에 대입
+				removeBook = bookList.get(i);
+				bookList.remove(i);
+				break;
+			}
+		}
 		// 4. removeBook 객체 반환
-		
-		return bookList.get(0);
+		return removeBook;
 		
 	}
 	public int ascBook() {
 		// Collections.sort와 Comparable 활용
 		// 책 이름 기준으로 오름차순 정렬 후 1 반환
+		
 		
 		return 0;
 	}
