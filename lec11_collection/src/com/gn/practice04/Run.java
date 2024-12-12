@@ -18,9 +18,7 @@ public class Run {
 //	System.out.println(product);
 	product.set(0, new Product("오렌지",1500));
 	System.out.println("=== 기본 for문으로 조회 ===");
-	for(int i = 0 ;i<product.size();i++) {
-		System.out.println(i+" : "+product.get(i));
-	}
+	
 		
 	}
 }

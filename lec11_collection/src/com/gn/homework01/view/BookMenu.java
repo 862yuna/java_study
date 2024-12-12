@@ -45,7 +45,8 @@ public class BookMenu {
 						break;
 					default :
 						System.out.println("잘못 입력하였습니다. 다시 입력해주세요.");
-				}	mainMenu();
+						mainMenu();
+				}	
 			}
 		
 	}
@@ -68,7 +69,6 @@ public class BookMenu {
 		int type = sc.nextInt();
 		System.out.print("가격 : ");
 		int money = sc.nextInt();
-		Book b = new Book();
 		String result = "";
 		if(type==1) {
 			String genre1 = "인문";
@@ -84,10 +84,8 @@ public class BookMenu {
 			String genre4 = "기타";
 			result = genre4;
 		}
-		b.setTitle(bookName);
-		b.setAuthor(name);
-		b.setCategory(result);
-		b.setPrice(money);
+		Book b = new Book(bookName,name,result,money);
+		bc.insertBook(b);
 		
 		
 	}

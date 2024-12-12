@@ -2,7 +2,9 @@ package com.gn.study.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.gn.study.model.vo.Container;
 import com.gn.study.model.vo.Student;
@@ -124,6 +126,47 @@ public class Run {
 		System.out.println("정렬 전 :"+students);
 		Collections.sort(students);
 		System.out.println("정렬 후 :"+students);
+		System.out.println("==============HashSet=================");
+		
+		Set<String> city = new HashSet<String>(); // ->import 필요
+		city.add("서울");
+		city.add("부산");
+		city.add("광명");
+		System.out.println(city);
+		// 중복 데이터 추가 시도
+		city.add("서울");
+		System.out.println(city); // 중복 추가 X
+		
+		System.out.println("======for each로 조회 ======");
+		for(String str : city) {
+			System.out.println(str);
+//			city.remove(str); // 광명 출력->광명 삭제,부산 출력 -> 부산 삭제, 서울 출력-> 서울 삭제
+//			if(city.size()==0) {
+//				System.out.println("마지막!!");
+//			}
+		}
+		
+		
+		
+		// 삭제
+		city.remove("서울");
+		System.out.println("삭제 후 : "+city);
+		// 비우기
+		city.clear();
+		System.out.println("비우기 : "+city);
+		
+		Set<Student> set1 = new HashSet<Student>();
+		set1.add(new Student("김철수",30));
+		set1.add(new Student("이영희",40));
+		set1.add(new Student("홍길동",50));
+		set1.add(new Student("김철수",30));
+		System.out.println(set1); // 두가지 메소드의 결과값이 true여야 같은지 비교 가능, 주소값이 다름. 그래서 추가됨
+		//->해시 오버라이드 후 중복인정으로 추가X
+		set1.remove(new Student("김철수",30));
+		System.out.println("삭제 후 : "+set1);
+		// 해시코드 오버라이드나 equals 하나라도 없으면 삭제 되지 않음.
+		
+		
 		
 	}
 
