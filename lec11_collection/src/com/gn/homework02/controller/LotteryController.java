@@ -13,21 +13,10 @@ public class LotteryController {
 	private Set<Lottery> lottery = new HashSet<Lottery>();
 	private Set<Lottery> win = new HashSet<Lottery>();
 	
-	// 1. 전달 받은 l을 lottry HashSet에 추가
+	// 1. 전달 받은 l을 lottery HashSet에 추가
 	// 2. 추가 결과를 boolean 값으로 반환
 	public boolean insertObject(Lottery l) {
-		boolean result = false;
-		if(l instanceof Lottery) {
-			Lottery lc = (Lottery)l;
-			if(lc.getName().equals(l.getName())&&
-					lc.getPhone().equals(l.getPhone())) {
-				result = true;
-			}else {
-				lottery.add(new Lottery(l.getName(),l.getPhone()));
-				result = false;
-			}
-		}
-		return result;
+		return lottery.add(l);
 	}
 	
 	// 1. 전달 받은 l을 lottery에서 삭제
@@ -35,7 +24,6 @@ public class LotteryController {
 	// 3. 삭제 결과인 boolean 값과 win 객체가 null이 아닐 때에만
 	// win에도 해당 추첨 대상자 삭제
 	public boolean deleteObject(Lottery l) {
-		
 		lottery.remove(new Lottery(l.getName(),l.getPhone()));
 		return false;
 	}

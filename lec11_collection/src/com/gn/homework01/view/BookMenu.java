@@ -11,19 +11,20 @@ public class BookMenu {
 	private BookController bc = new BookController();
 	
 	public void mainMenu() {
-		System.out.println("=== 가남 도서관에 오신걸 환영합니다 ===");
-		System.out.println("원하시는 업무의 번호를 선택하세요.");
-		System.out.println("1. 새 도서 추가"); // insertBook() 호출
-		System.out.println("2. 도서 전체 조회"); // selectList() 호출
-		System.out.println("3. 도서 검색 조회"); // searchBook() 호출
-		System.out.println("4. 도서 삭제"); // deleteBook() 호출
-		System.out.println("5. 도서 오름차순 정렬"); // ascBook() 호출
-		System.out.println("9. 종료"); // "프로그램을 종료합니다." 출력 후 종료
 		//숫자 입력받아 기능 수행
 		// 1,2,3,4,5,9외의 숫자 입력하면->"잘못 입력하였습니다. 다시 입력해주세요." 출력
-		while(true) {
+		int num = 0;
+		while(num!=9) {
+			System.out.println("=== 가남 도서관에 오신걸 환영합니다 ===");
+			System.out.println("원하시는 업무의 번호를 선택하세요.");
+			System.out.println("1. 새 도서 추가"); // insertBook() 호출
+			System.out.println("2. 도서 전체 조회"); // selectList() 호출
+			System.out.println("3. 도서 검색 조회"); // searchBook() 호출
+			System.out.println("4. 도서 삭제"); // deleteBook() 호출
+			System.out.println("5. 도서 오름차순 정렬"); // ascBook() 호출
+			System.out.println("9. 종료"); // "프로그램을 종료합니다." 출력 후 종료
 			System.out.print("메뉴 선택 : ");
-			int num = sc.nextInt();
+			num = sc.nextInt();
 			
 				switch(num) {
 					case 1 :
@@ -46,31 +47,30 @@ public class BookMenu {
 						break;
 					default :
 						System.out.println("잘못 입력하였습니다. 다시 입력해주세요.");
-						mainMenu();
+//						mainMenu();
 				}	
 			}
 		
 	}
 	// 1. 새 도서 추가 view 메소드
 	public void insertBook() {
-		// 1. 도서명(String title)입력받기
-		// 2. 저자명(String author)입력받기
-		// 3. 장르(int category) 입력받기
-		// 4. 가격(int price) 입력받기
-		// 5. 매개변수 생성자를 이용하여 Book 객체 생성
-		// 장르명 입력은 숫자, 객체 생성할때는 문자열로 넘기기
-		// (1:인문 / 2:자연과학 / 3:어린이 / 그 외:기타)
-		// 6. BookController의 insert로Book객체 전달
 		System.out.println("=== 도서 등록 ===");
+		// 1. 도서명(String title)입력받기
 		System.out.print("도서명 : ");
-		String title = sc.nextLine();
+		String title = sc.next();
+		sc.nextLine();
+		// 2. 저자명(String author)입력받기
 		System.out.print("저자명 : ");
 		String author = sc.nextLine();
+		// 3. 장르(int category) 입력받기
 		System.out.print("장르 : ");
 		int category = sc.nextInt();
-		String categoryStr = "";
+		// 4. 가격(int price) 입력받기
 		System.out.print("가격 : ");
 		int price = sc.nextInt();
+		// 장르명 입력은 숫자, 객체 생성할때는 문자열로 넘기기
+		// (1:인문 / 2:자연과학 / 3:어린이 / 그 외:기타)
+		String categoryStr = "";
 		if(category==1) {
 			 categoryStr = "인문";
 			
@@ -81,7 +81,9 @@ public class BookMenu {
 		}else {
 			categoryStr = "기타";
 		}
+		// 5. 매개변수 생성자를 이용하여 Book 객체 생성
 		Book b = new Book(title,author,categoryStr,price);
+		// 6. BookController의 insert로Book객체 전달
 		bc.insertBook(b);
 		
 		
@@ -90,8 +92,8 @@ public class BookMenu {
 	public void selectList() {
 		System.out.println("=== 도서 검색 ===");
 		// 1.BookController의 selectList 메소드 호출
-		List<Book> bookList = bc.selectList();
 		// -> 결과값을 임의의 리스트 bookList 생성하여 대입
+		List<Book> bookList = bc.selectList();
 		// 2. 조건식 이용
 		// 2-1. bookList가 비어있는 경우 -> "존재하는 도서가 없습니다." 문구 출력
 		// 2-2. bookList가 비어있지 않은 경우
@@ -131,18 +133,19 @@ public class BookMenu {
 	}
 	// 4. 도서 삭제 view 메소드
 	public void deleteBook() {
-		// 1. 삭제할 도서명 입력 받기 (String title)
 		System.out.println("=== 도서 삭제 ===");
+		// 1. 삭제할 도서명 입력 받기 (String title)
 		System.out.print("도서명 : ");
-		String title = sc.nextLine();
+		String title = sc.next();
+		sc.nextLine();
 		// 2. 삭제할 저자명 입력 받기 (String author)
 		System.out.print("저자명 : ");
 		String author = sc.nextLine();
 		//-> 같은 도서명을 가졌지만 저자명이 다른 경우
 		// 다른 도서명을 가졌지만 저자명이 같은 경우도 있을 수 있음
 		// 3. BookController의 deleteBook()메소드로 title,author전달
-		Book remove = bc.deleteBook(title, author);
 		// -> 결과값을 임의의Book(참조변수명 remove)객체에 대입
+		Book remove = bc.deleteBook(title, author);
 		// 4. 조건식 이용
 		// 4-1. remove가 존재하는 경우-> "성공적으로 삭제되었습니다" 문구출력
 		if(remove != null) {
@@ -162,6 +165,7 @@ public class BookMenu {
 		// 4. 실패시 "정렬에 실패하였습니다."출력
 		if(result ==1) {
 			System.out.println("정렬에 성공하였습니다.");
+			
 		}else {
 			System.out.println("정렬에 실패하였습니다.");
 		}

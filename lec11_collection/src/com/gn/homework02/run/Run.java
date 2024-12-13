@@ -6,4 +6,5 @@ import com.gn.homework02.view.LotteryMenu;
 public class Run {
 	LotteryMenu lm = new LotteryMenu();
 //	lm.mainMenu();
+	
 }
