@@ -24,7 +24,9 @@ public class Homework01 {
 			}
 		}catch(Exception e) {
 			System.out.println("잘못된 값입니다. 숫자를 입력해주세요.");
-		}
+		} 
+		
+		// while문과 try catch 위치 바꿔보기
 
 		
 		

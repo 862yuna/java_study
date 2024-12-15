@@ -4,7 +4,10 @@ import com.gn.homework02.view.LotteryMenu;
 
 // LotteryMenu 호출
 public class Run {
-	LotteryMenu lm = new LotteryMenu();
-//	lm.mainMenu();
+	public static void main(String[] args) {
+		LotteryMenu lm = new LotteryMenu();
+		lm.mainMenu();
+	}
+	
 	
 }

@@ -1,8 +1,10 @@
 package com.gn.homework02.view;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.gn.homework02.controller.LotteryController;
+import com.gn.homework02.model.vo.Lottery;
 // LotteryController 호출
 public class LotteryMenu {
 	// Scanner 객체 생성
@@ -34,13 +36,14 @@ public class LotteryMenu {
 			}
 			
 			switch(num){
-				case 1 :lc.insertObject(null); break;
-				case 2 : lc.deleteObject(null); break;
-				case 3 : lc.searchjObject(); break;
-//				case 4 : lc.winObject(); break;
-				case 5 : lc.sortedWinObject(); break;
-				case 6 : lc.searchWinner(); break;
+				case 1 : insertObject(); break;
+				case 2 : deleteObject(); break;
+				case 3 : searchObject(); break;
+				case 4 : winObject(); break;
+				case 5 : sortedWinObject(); break;
+				case 6 : searchWinner(); break;
 				case 9 : System.out.println("프로그램 종료."); break;
+				default : System.out.println("잘못 입력하였습니다. 다시 입력해주세요."); break;
 			}
 		}
 	}
@@ -56,7 +59,25 @@ public class LotteryMenu {
 	// -> 이어서 다시 객체 입력하도록 해줌
 	// 5. 모든 입력이 완료되면 "n 명추가 완료되었습니다." 출력
 	public void insertObject() {
-		
+		System.out.println("===== 1. 추첨 대상 추가 =====");
+		System.out.print("추가할 추첨 대상 수 : ");
+		int num = sc.nextInt();
+		int count = 0;
+		while(count != num) {
+			System.out.print("이름 : ");
+			String name = sc.next();
+			sc.nextLine();
+			System.out.print("휴대폰 번호('-'빼고) : ");
+			String phone = sc.nextLine();
+			Lottery l = new Lottery(name,phone);
+			if(lc.insertObject(l)==false) {
+				System.out.println("중복된 대상입니다. 다시 입력하세요.");
+			}else {
+				count++;
+			}
+			
+		}
+		System.out.println(num+"명 추가 완료되었습니다.");
 	}
 	
 	// 2. 추첨 대상 삭제용 view 메소드
@@ -67,6 +88,21 @@ public class LotteryMenu {
 	// 4. 전달받은 값 true면 "삭제 완료되었습니다."
 	// 5. false면 "존재하지 않는 대상입니다." 출력
 	public void deleteObject() {
+		System.out.println("===== 2. 추첨 대상 삭제 =====");
+		System.out.println("삭제할 대상의 이름과 핸드폰 번호를 입력하세요.");
+		System.out.print("이름 : ");
+		String name = sc.next();
+		sc.nextLine();
+		System.out.print("핸드폰 번호(-빼고) : ");
+		String phone = sc.next();
+//		lc.deleteObject(new Lottery(name,phone));
+		Lottery l = new Lottery(name,phone);
+		boolean result = lc.deleteObject(l);
+		if(result == true) {
+			System.out.println("삭제 완료되었습니다.");
+		}else {
+			System.out.println("존재하지 않는 대상입니다.");
+		}
 		
 	}
 	
@@ -74,7 +110,8 @@ public class LotteryMenu {
 	// lc에 있는 searchObject에게 
 	// 당첨 가능성이 있는 대상(추첨 대상) 목록 조회 요청
 	public void searchObject() {
-		
+		System.out.println("===== 3. 추첨 대상 목록 조회 =====");
+		System.out.println(lc.searchjObject());
 	}
 	
 	// 4. 당첨 대상 확인용 view 메소드
@@ -82,12 +119,24 @@ public class LotteryMenu {
 	// lc의 winObject 리턴값이 null이면 
 	// "추첨 대상이 4명이상이어야 당첨 대상을 구성할 수 있습니다."출력
 	public void winObject() {
+		System.out.println("===== 4. 당첨 대상 구성 =====");
+		if(lc.winObject()==null) {
+			System.out.println("추첨 대상이 4명 이상이어야 당첨 대상을 구성할 수 있습니다.");
+		}else {
+			System.out.println(lc.winObject());
+		}
+		
 		
 	}
 	
 	// 5. 정렬된 당첨 대상 확인
 	public void sortedWinObject() {
 	// lc에서 받아온 Set 객체를 Iterator를 통해 출력	
+		System.out.println("===== 5. 정렬된 당첨 대상 확인 =====");
+		Iterator<Lottery> itLottery = lc.sortedWinObject().iterator();
+		if(itLottery.hasNext()) {
+			System.out.println(itLottery);
+		}
 	}
 	
 	// 6. 당첨 대상 검색용 view 메소드
@@ -97,6 +146,19 @@ public class LotteryMenu {
 	// 3. 정보 담긴 객체를 lc의 searchWinner에 보내기
 	// 4. 받은 결과가 true면 "축하합니다. 당첨 목록에 존재합니다."
 	// 5. false면 "다음 기회에!" 출력 	
+		System.out.println("===== 6. 당첨 대상 검색 =====");
+		System.out.println("검색할 대상의 이름과 핸드폰 번호를 입력하세요.");
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		System.out.print("핸드폰 번호('-'뻬고) : ");
+		String phone = sc.next();
+		Lottery l = new Lottery(name,phone);
+		lc.searchWinner(l);
+		if(lc.searchWinner(l)==true) {
+			System.out.println("축하합니다. 당첨 목록에 존재합니다.");
+		} else {
+			System.out.println("다음 기회에!");
+		}
 	}
 	
 

@@ -1,6 +1,8 @@
 package com.gn.homework02.controller;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,8 +11,8 @@ import com.gn.homework02.model.vo.Lottery;
 // Lottery 호출
 public class LotteryController {
 	// 추첨 대상을 담을 HashSet 객체 생성(lottery)
-	// 당첨 대상을 담을 HashSet 객체 생성(win)
 	private Set<Lottery> lottery = new HashSet<Lottery>();
+	// 당첨 대상을 담을 HashSet 객체 생성(win)
 	private Set<Lottery> win = new HashSet<Lottery>();
 	
 	// 1. 전달 받은 l을 lottery HashSet에 추가
@@ -24,8 +26,11 @@ public class LotteryController {
 	// 3. 삭제 결과인 boolean 값과 win 객체가 null이 아닐 때에만
 	// win에도 해당 추첨 대상자 삭제
 	public boolean deleteObject(Lottery l) {
-		lottery.remove(new Lottery(l.getName(),l.getPhone()));
-		return false;
+		boolean result =  lottery.remove(l);
+		if(win != null) {
+			win.remove(l);
+		}
+		return result;
 	}
 	public Set<Lottery> searchjObject(){
 		// lottery를 리턴
@@ -41,9 +46,18 @@ public class LotteryController {
 	// 만일 당첨자 목록에 삭제된 추첨 대상자가 있다면
 	// 기존에 당첨된 사람은 제외
 	// 삭제된 사람의 자리만 새로운 추첨자로 채우기
-//	public Set<Lottery> winObject(){
-//		
-//	}
+	public Set<Lottery> winObject(){
+		if(lottery.size()<4) {
+			return null;
+		} else {
+			List<Lottery> lottery = new ArrayList<Lottery>();
+			if(lottery.size()>=4) {
+				int num = (int)(Math.random()*lottery.size());
+				win.add(lottery.get(num));
+			}
+		}
+		return win;
+	}
 	
 	// 1. 이름을 오름차순으로 정렬
 	// 이름이 같으면 번호로 오름차순 정렬
@@ -51,14 +65,16 @@ public class LotteryController {
 	// 이때, 미리 만들어진 win을 가지고 정렬
 	public Set<Lottery> sortedWinObject(){
 	
-		win = new TreeSet<Lottery>();
-		return win;
+		Set<Lottery> sort = new TreeSet<Lottery>();
+		sort.addAll(win);
+		
+		return sort;
 	}
 	
 	// 1. win에 해당 객체가 있는지 확인
 	// 2. 결과 boolean을 리턴
-	public boolean searchWinner() {
-		boolean result = false;
+	public boolean searchWinner(Lottery l) {
+		boolean result = win.contains(l);
 		return result;
 	}
 }
