@@ -50,7 +50,10 @@ public class Run {
 	System.out.print("단어를 입력하세요 : ");
 	String str = sc.next();
 	if(sentence.contains(str)) {
-		String[] strArr = sentence.split(str);
+		String result = sentence.substring(sentence.indexOf(str));
+		System.out.println(result);
+	} else {
+		System.out.println("존재하지 않는 단어입니다.");
 	}
 	
 	
