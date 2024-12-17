@@ -33,8 +33,5 @@ public class Run {
 			
 			System.out.println(personInfo);
 		}
-		
-		
-		
 	}
 }

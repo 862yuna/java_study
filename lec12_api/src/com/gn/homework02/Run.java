@@ -14,6 +14,7 @@ public class Run {
 //		서울특별시 서대문구 연희로 248
 //		울산광역시 남구 돋질로 233
 //		경상북도 구미시 송정대로 55
+		Practice p = new Practice();
 		List<String> stateList = new ArrayList<String>();
 		stateList.add("서울특별시 금천구 구로디지털2로 95");
 		stateList.add("서울특별시 서대문구 연희로 248");
@@ -28,9 +29,10 @@ public class Run {
 //		for(int i = 0;i<stateList.size();i++) {
 //			if(stateList.contains(stateList))
 //		}
-		
-		
-		
+		for(String str : stateList) {
+			System.out.println(p.takeState(str));
+//			System.out.println(str);
+		}
 	}
 
 }

@@ -5,7 +5,12 @@ public class Run {
 	String[] words = {"java", "application", "programming", "interface"};
 	String sentence = String.join(" ", words);
 	System.out.println("문장 : "+sentence);
-	
+	String result = "";
+	// 선생님 풀이방식
+	for(int i =1;i<words.length;i++) {
+		result += words[i].substring(0,1).toUpperCase();
+	}
+	System.out.println(result);
 	
 //	System.out.println(words[0]);
 	String text = words[1].substring(0,1).toUpperCase();

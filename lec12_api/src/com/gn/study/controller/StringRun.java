@@ -111,6 +111,31 @@ public class StringRun {
 	String file_name = file.substring(0,file.lastIndexOf("."));
 	System.out.println(ex+" : "+file_name);
 	
+	// valueOf
+	System.out.println("____________valueOf_______________");
+	double pi = 3.14;
+	String piStr = String.valueOf(pi);
+	System.out.println(piStr+2.1); // 문자열로서 출력됨
+	
+	//StringBuilder
+	System.out.println("____________StringBuilder_______________");
+	StringBuilder sb = new StringBuilder("Hello"); //-> 초기 데이터 지정
+	sb.append("world!!");
+	System.out.println(sb);
+	
+	sb.insert(5,  " Java ");
+	System.out.println(sb);
+	System.out.println("____________delete()_______________");
+	sb.delete(11, 16+1);
+	System.out.println(sb);
+	System.out.println("____________deleteCharAt()_______________");
+	int idx = sb.indexOf("!");
+	sb.deleteCharAt(idx);
+	System.out.println(sb);
+	System.out.println("____________reverse()_______________");
+	sb.reverse();
+	System.out.println(sb);
+	
 	
 	
 	}
