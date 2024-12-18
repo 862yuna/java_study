@@ -55,13 +55,21 @@ public class BuilderMenu {
 	public void inputMenu() {
 	// 1. 문자열 입력 받기
 		System.out.print("문자열 입력 : ");
-		String text = sc.nextLine();
+		String text = sc.next();
 	// bc의 firstCap()으로 입력받은 문자열 넘기고 반환값 출력
+		String text2 = bc.firstCap(text);
+		System.out.println(text2);
 	// 2. 문자 개수 찾기
 	// bc에 findChar()로 위에 입력 받은 문자열과 방금 받은 문자 넘기기
 	// 반환값 출력	
+		System.out.print("문자 입력 : ");
+		String text3 = sc.next();
+		char one = text3.charAt(0);
+		int count = bc.findChar(text2, one);
+		System.out.println(count);
+		
 	}
-	
+		
 	
 	
 	
