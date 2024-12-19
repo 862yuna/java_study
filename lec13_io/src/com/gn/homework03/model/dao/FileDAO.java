@@ -1,7 +1,9 @@
 package com.gn.homework03.model.dao;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class FileDAO {
@@ -12,7 +14,6 @@ public class FileDAO {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		
 		File note = new File(dir,file);
 		boolean result = false;
 		if(!note.exists()) {
@@ -21,12 +22,12 @@ public class FileDAO {
 			result = true;
 		}
 		return result;
-	
 	}
+	
 	public void fileSave(String file,String s) {
 	// 매개변수로 들어온 file을 파일 명으로 이용하여 파일을 만들어주고 
 	// String에 써서 저장
-		File dir = new File("C:\\test\\sub");
+		File dir = new File("C:\\test\\241219");
 //		if(!dir.exists()) {
 //			dir.mkdirs();
 //		}
@@ -40,15 +41,36 @@ public class FileDAO {
 			e.printStackTrace();
 		}
 	}
-//	public StringBilder fileOpen(String file) {
-//	// 매개변수로 들어온 file로 파일을 찾아 StringBuilder에 값들 저장하여 반환 
-//		StringBuilder sb = new StringBuilder();
-//	}
+	
+	public StringBuilder fileOpen(String file) {
+	// 매개변수로 들어온 file로 파일을 찾아 StringBuilder에 값들 저장하여 반환 
+		File dir = new File("C:\\test\\241219");
+		File note = new File(dir,file);
+//		FileReader in = null;
+		StringBuilder sb = new StringBuilder();
+		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+			while(true) {
+				String data = br.readLine();
+				if(data == null) break;
+				sb.append(data).append("\n");
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		return sb;
+	}
+	
 	public void fileEdit(String file, String s) {
 	// 매개변수로 들어온 file을 파일 명으로 이용하여 파일을 찾고 
 	// String에 써서 저장하되 이어서 저장될 수 있도록 함 
-		
-		
-		
+		File dir = new File("C:\\test\\241219");
+		File note = new File(dir,file);
+		try(FileOutputStream fos = new FileOutputStream(file,true)){
+			byte[] b = s.getBytes();
+			fos.write(b);
+			fos.flush();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
