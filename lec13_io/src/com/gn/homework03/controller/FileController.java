@@ -21,10 +21,7 @@ public class FileController {
 	public StringBuilder fileOpen(String file){ 
 	// fd의 fileOpen() 매개변수로 file을 넘겨주고 
 	// 그 반환 값을 그대로 받아 또 반환
-		StringBuilder sb = new StringBuilder();
-		fd.fileOpen(file);
-		sb.append(fd.fileOpen(file));
-		return sb;
+		return fd.fileOpen(file);
 		
 	} 
 	public void fileEdit(String file, StringBuilder sb){ 

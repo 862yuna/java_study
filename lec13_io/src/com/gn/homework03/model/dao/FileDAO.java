@@ -9,12 +9,12 @@ import java.io.IOException;
 public class FileDAO {
 	
 	public boolean checkName(String file) {
-	// File 객체를 생성하는 매개변수 있는 생성자에 file을 매개변수로 넘겨줌 
-	// 해당 파일이 있는지 없는지에 대한 boolean 값을 반환 	
 		File dir = new File("C:\\test\\homework");
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
+	// File 객체를 생성하는 매개변수 있는 생성자에 file을 매개변수로 넘겨줌 
+	// 해당 파일이 있는지 없는지에 대한 boolean 값을 반환 	
 		File note = new File(dir,file);
 		boolean result = false;
 		if(!note.exists()) {
@@ -49,10 +49,11 @@ public class FileDAO {
 		File note = new File(dir,file);
 //		FileReader in = null;
 		StringBuilder sb = new StringBuilder();
-		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(note))) {
 			while(true) {
 				String data = br.readLine();
 				if(data == null) break;
+				
 				sb.append(data).append("\n");
 			}
 		}catch(IOException e) {
@@ -66,7 +67,7 @@ public class FileDAO {
 	// String에 써서 저장하되 이어서 저장될 수 있도록 함 
 		File dir = new File("C:\\test\\homework");
 		File note = new File(dir,file);
-		try(FileOutputStream fos = new FileOutputStream(file,true)){
+		try(FileOutputStream fos = new FileOutputStream(note,true)){
 			byte[] b = s.getBytes();
 			fos.write(b);
 			fos.flush();
