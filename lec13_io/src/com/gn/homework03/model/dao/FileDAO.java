@@ -58,7 +58,10 @@ public class FileDAO {
 			}
 		}catch(IOException e) {
 			e.printStackTrace();
+		
 		}
+		int idx = sb.lastIndexOf("\n");
+		sb.deleteCharAt(idx);
 		return sb;
 	}
 	
