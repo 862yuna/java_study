@@ -39,6 +39,7 @@ public class Practice {
 				num1 = sc.nextInt();
 			} else {
 				break;
+				
 			}
 		}
 		while(true) {
